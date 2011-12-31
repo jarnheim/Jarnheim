@@ -71,9 +71,6 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '0li=g64+k+#75v=73_%j-@7mv)gqv=rczv%wyaac@0kmoypnq^'
-
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -108,6 +105,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
+    'jarnheim.rpf',
 )
 
 # A sample logging configuration. The only tangible logging
