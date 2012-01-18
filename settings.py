@@ -122,6 +122,7 @@ INSTALLED_APPS = (
 
     'rpf',
     'bans',
+    'characters',
 )
 
 # A sample logging configuration. The only tangible logging

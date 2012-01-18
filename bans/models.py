@@ -47,4 +47,6 @@ class Ban( models.Model ):
     class Meta:
         ordering = ["-end_dtm", "-start_dtm"]
         unique_together = ("user", "start_dtm")
+        verbose_name_plural = "bans"
+        get_latest_by = "start_dtm"
 

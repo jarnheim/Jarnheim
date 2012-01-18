@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block name %}{% trans "Home" %}{% endblock %}
+
+{% block content %}
+
+  <ul>
+    <li><a href="/admin">Admin</a></li>
+    <li><a href="/bans">Bans</a></li>
+  </ul>
+
+{% endblock %}
