@@ -18,4 +18,11 @@ class CharacterAdmin(admin.ModelAdmin):
     list_display = ("name", "bodyweight_kg", "height_cm", ) #"race")
     # list_filter = ["race"]
 
-admin.site.register(Character, CharacterAdmin)
+
+# Workaround for a weird admin import error
+try:
+    admin.site.unregister(Character)
+except:
+    pass
+finally:
+    admin.site.register(Character, CharacterAdmin)

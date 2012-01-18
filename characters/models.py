@@ -2,11 +2,11 @@ from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from dateutil.relativedelta import relativedelta
-from util import convert_height
-from util import convert_weight
-from util import UNITS_OF_MEASURE_HEIGHT
-from util import UNITS_OF_MEASURE_WEIGHT
-from util import GENDER
+from Jarnheim.util import convert_height
+from Jarnheim.util import convert_weight
+from Jarnheim.util import UNITS_OF_MEASURE_HEIGHT
+from Jarnheim.util import UNITS_OF_MEASURE_WEIGHT
+from Jarnheim.util import GENDER
 
 class Character( models.Model ):
     id = models.AutoField( primary_key = True )

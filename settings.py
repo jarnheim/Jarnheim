@@ -1,4 +1,5 @@
-# Django settings for clothing_exchange project.
+import re
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -8,6 +9,31 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+# Set up test stuff
+# django-nose
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# Specify which style you want the listing to be in
+# 'path' or 'module'
+# 'path': '/myhome/project/package/module'
+# 'module': 'package.module'
+COVERAGE_TEST_LIST_STYLE = 'module'
+
+# Specify regular expressions of code blocks you would like to ignore
+# in the coverage test
+COVERAGE_TEST_EXCLUDES = (
+    'def __unicode__\(self\):', 'def get_absolute_url\(self\):',
+    )
+    
+# Specify regular expressions of paths to exclude
+COVERAGE_TEST_PATH_BLACKLIST = (
+    r'django%sdjango' %re.escape(os.path.sep),
+    r'.svn', 'tests', 'settings', '__init__', 'urls',
+    'common.*views.*test',
+    )
+
+COVERAGE_TEST_HTML_OUTPUT_DIR = 'test_html'
 
 DATABASES = {
     'default': {
@@ -108,7 +134,14 @@ TEMPLATE_DIRS = (
 # Use my user model, rather than the default
 AUTH_PROFILE_MODEL='jar_user.Profile'
 
-INSTALLED_APPS = (
+# Add new apps here, this will make test coverage checks easier
+JARNHEIM_APPS = (
+    #'rpf',
+    'bans',
+    'characters',
+)    
+
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -119,11 +152,15 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+]
 
-    'rpf',
-    'bans',
-    'characters',
-)
+INSTALLED_APPS.extend(JARNHEIM_APPS)
+
+if(DEBUG):
+    INSTALLED_APPS.extend((
+        # Django-nose test module
+        'django_nose',
+        ),)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -147,3 +184,4 @@ LOGGING = {
         },
     }
 }
+

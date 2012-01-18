@@ -16,4 +16,10 @@ class BanAdmin(admin.ModelAdmin):
         return self.end_dtm.date >= datetime.date.today()
     currently_banned.short_description = 'Currently banned?'
 
-admin.site.register(Ban, BanAdmin)
+# Workaround for a weird admin import error
+try:
+    admin.site.unregister(Ban)
+except:
+    pass
+finally:
+    admin.site.register(Ban, BanAdmin)
