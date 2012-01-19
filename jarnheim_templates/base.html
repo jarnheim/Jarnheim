@@ -1,0 +1,23 @@
+{% load i18n %}
+
+<!Doctype type="html">
+<html>
+  <head>
+    <title>Jarnheim</title>
+  </head>
+  <body>
+    <h1>{% block name %}{% endblock %}</h1>
+
+    <span id="breadcrumbs">
+        <a href="/">{% trans "Home" %}</a>
+
+        {% block breadcrumbs %}
+        {% endblock %}
+   </span>
+
+    {% block content %}
+
+    {% endblock %}
+  </body>
+
+</html>

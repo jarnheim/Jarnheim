@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block name %}{% trans "Banned Users" %}{% endblock %}
+
+{% block content %}
+  {% if ban_list %}
+    <table class="bans">
+      <tr>
+	<th>{% trans "User" %}</th>
+	<th>{% trans "Start Date" %}</th>
+	<th>{% trans "End Date" %}</th>
+      </tr>
+      {% for ban in ban_list %}
+        <tr>
+	  <td>
+	    <a href="/bans/{{ ban.id }}/" >{{ ban.user }}</a>
+	  </td>
+          <td>{{ ban.start_dtm }}</td>
+	  <td>{{ ban.end_dtm }})</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No bans found</p>
+  {% endif %}
+
+{% endblock %}

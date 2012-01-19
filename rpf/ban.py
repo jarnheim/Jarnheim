@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class ban( models.Model ):
+class Ban( models.Model ):
     id = models.AutoField( primary_key = True )
     user = models.OneToOneField( User )
     ip_address = models.IPAddressField()

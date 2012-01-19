@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block name %}{% trans "Banned User " %} {{ ban.user }}{% endblock %}
+
+{% block breadcrumbs %} &gt;
+  <a href="/bans">{% trans "Bans" %}</a>
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <label for="bannedby">{% trans "Banned By" %}</label>
+  <span id="bannedby">{{ ban.banned_by }}</span>
+</div>
+
+<div>
+  <label for="ip">{% trans "IP Address" %}</label>
+  <span id="ip">{{ ban.ip_address }}</span>
+</div>
+
+<div>
+  <label for="start">{% trans "Start" %}</label>
+  <span id="start">{{ ban.start_dtm }}</span>
+</div>
+
+<div>
+  <label for="end">{% trans "End" %}</label>
+  <span id="end">{{ ban.end_dtm }}</span>
+</div>
+
+<div>
+  <label for="reason">{% trans "Reason" %}</label>
+  <div id="reason">{{ ban.reason }}</span>
+</div>
+
+<div>
+  <label for="notes">{% trans "Notes" %}</label>
+  <div id="notes">{{ ban.notes }}</span>
+</div>
+
+{% endblock %}
